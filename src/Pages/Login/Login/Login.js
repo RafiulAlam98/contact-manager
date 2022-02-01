@@ -73,6 +73,7 @@ const Login = () => {
                                              sx={{width:'50%',m:2}}
                                              variant="contained"
                                              type="submit"
+                                             size="small"
                                              >Login
                                         </Button>
                                         <Link style={{textDecoration:'none'}} to="/register">

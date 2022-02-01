@@ -25,7 +25,7 @@ const useFirebase = () =>{
                        }).then(() => {
                        }).catch((error) => {
                        });
-                       const destination = location?.state?.from || '/dashboard'
+                       const destination = location?.state?.from || '/contact-list'
                          history.replace(destination)  
                })
                .catch((error) => {
@@ -41,7 +41,7 @@ const useFirebase = () =>{
           setIsLoading(true)
           signInWithEmailAndPassword(auth, email, password)
                .then(() => {
-                    const destination = location?.state?.from || '/dashboard'
+                    const destination = location?.state?.from || '/contact-list'
                     history.replace(destination)  
                     setError("")
                })
