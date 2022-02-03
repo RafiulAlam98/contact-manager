@@ -14,19 +14,19 @@ const DashboardLink = () => {
      return (
           <>
                <List sx={{mt:1}}>
-          <Link exact to='/contact-list'  style={{textDecoration:'none'}}>
-               <Button color='inherit' sx={{ color: 'green', fontWeight: '600',mr:2 }}>
-               <ContactsIcon sx={{ mr: 1 }}></ContactsIcon>
-                    Contact List
-               </Button>
-          </Link>
-          <Link to={`${url}/view-contact`} style={{textDecoration:'none'}}>   
-               <Button color='inherit'sx={{ color: 'green', fontWeight: '600',mt:2 }}>
-                
-                     
-               </Button>
-          </Link>
-      </List>
+                    <Link exact to='/contact-list'  style={{textDecoration:'none'}}>
+                         <Button color='inherit' sx={{ color: '#059862', fontWeight: '600',mr:2 }}>
+                         <ContactsIcon sx={{ mr: 1 }}></ContactsIcon>
+                              Contact List
+                         </Button>
+                    </Link>
+                    <Link to={`${url}/view-contact`} style={{textDecoration:'none'}}>   
+                         <Button color='inherit'sx={{ color: '#059862', fontWeight: '600',mt:2 }}>
+                         
+                              
+                         </Button>
+                    </Link>
+               </List>
           </>
      );
 };

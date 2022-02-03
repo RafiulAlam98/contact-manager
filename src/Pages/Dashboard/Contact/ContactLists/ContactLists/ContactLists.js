@@ -1,19 +1,20 @@
 import React,{useState,useEffect} from 'react';
 import Grid from '@mui/material/Grid';
 import CircularProgress from '@mui/material/CircularProgress';
+import ContactView from '../ContactView/ContactView';
 
 const ContactLists = () => {
-     const [poojas, setPoojas] = useState([]);
+     const [contacts, setContacts] = useState([]);
      const [loading, setLoading] = useState(false);
 
      
      useEffect(() => {
           setLoading(true);
-          fetch('')
+          fetch('http://localhost:5000/allContacts')
             .then(res => res.json())
-            .then(pooja => {
-              setPoojas(pooja.data);
-              console.log(pooja.data);
+            .then(info => {
+              setContacts(info);
+              console.log(info);
               setLoading(false);
             });
         }, []);
@@ -24,7 +25,7 @@ const ContactLists = () => {
      return (
           <>
                <Grid container spacing={2}>
-                   
+                   <ContactView loading={loading} contacts={contacts}></ContactView>
                </Grid>  
           </>
      );

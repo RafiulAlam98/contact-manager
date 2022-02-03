@@ -6,6 +6,7 @@ import {
      useRouteMatch
    } from "react-router-dom";
 import ContactManage from '../../Contact/ContactAdd/ContactManage/ContactManage';
+import ContactLists from './../../Contact/ContactLists/ContactLists/ContactLists';
 
 const DashboardRoute = () => {
      let { path } = useRouteMatch();
@@ -17,6 +18,7 @@ const DashboardRoute = () => {
                     <Switch>
                          <Route path={`${path}`}>
                               <ContactManage></ContactManage>
+                              <ContactLists></ContactLists>
                          </Route>
                     </Switch>
                </Grid>

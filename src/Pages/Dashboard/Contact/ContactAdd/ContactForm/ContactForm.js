@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { useForm } from "react-hook-form";
 import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
 
 const style = {
      position: 'absolute',
@@ -21,8 +22,29 @@ const ContactForm = ({ open, handleClose }) => {
      const [contactInfo, setContactInfo] = useState({});
      const { register, handleSubmit } = useForm();
      const onSubmit = data => {
-          console.log('click')
+          
+          const contactInfo = {
+               ...data,
+               status:'pending'
+          }
+          console.log(contactInfo)
+          fetch(`http://localhost:5000/newContact`, {
+               method: 'POST',
+               headers: {
+                    'content-type': 'application/json',
+                    'Accept': 'application/json'
+               },
+               body: JSON.stringify(contactInfo),
+               })
+               .then(res => res.json())
+               .then(info => {
+                    console.log(info);
+                    setContactInfo(info.insertedId)
+                    alert("Contact added successfully")
+                    handleClose();
+               });
      }
+
 
      return (
           <>
@@ -36,15 +58,47 @@ const ContactForm = ({ open, handleClose }) => {
                     <Grid>
                          <Box> 
                               <form onSubmit={handleSubmit(onSubmit)}>
-                                   <input {...register("name", { required: true, maxLength: 20 })} />
-                                   <input {...register("email", { required: true })} />
-                                   <input type="number" {...register("phone",)} />
-                                   <input type="submit" />
+                                   <Box sx={{textAlign:'center'}}>
+                                        <TextField 
+                                        sx={{mb:3,width:'75%'}}  
+                                        required
+                                        id="filled-required"
+                                        label="name"
+                                        defaultValue=""
+                                        variant="filled"
+                                        size='small' {...register("name", { required: true, maxLength: 20 })} />
+
+                                        <TextField 
+                                        sx={{mb:3,width:'75%'}}  
+                                        required
+                                        id="filled-required"
+                                        label="email"
+                                        defaultValue=""
+                                        variant="filled"
+                                        size='small'{...register("email", { required: true })} />
+
+                                        <TextField
+                                        sx={{mb:3,width:'75%'}}
+                                        required
+                                        id="filled-required"
+                                        label="phone"
+                                        defaultValue=""
+                                        variant="filled"
+                                        size='small' {...register("phone",)} />
+                                        
+                                       
+                                   </Box>
+
+                                   <Box sx={{ textAlign:'center'}}>
+                                        <input type="submit" />
+                                   </Box>
                               </form>
                          </Box>
                     </Grid>
                </Box>
-        </Modal>  
+          </Modal>  
+         
+        
           </>
      );
 };
