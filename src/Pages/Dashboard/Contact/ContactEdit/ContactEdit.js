@@ -6,7 +6,7 @@ const ContactEdit = ({id }) => {
      
      const handleUpdate = id => {
           console.log(id)
-     fetch(`http://localhost:5000/allContacts/${id}`, {
+     fetch(`https://cryptic-anchorage-19395.herokuapp.com/allContacts/${id}`, {
           method: 'PUT',
           headers: {
           'content-type': 'application/json',

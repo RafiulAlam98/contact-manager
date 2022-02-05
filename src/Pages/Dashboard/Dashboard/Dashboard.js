@@ -7,17 +7,17 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import useAuth from './../../../hooks/useAuth/useAuth';
 import DashboardLink from './DashboardLink/DashboardLink';
 import DashboardRoute from './DashboardRoute/DashboardRoute';
+import logo from '../../../img/logo.png'
 
 
 
-   const drawerWidth = 200;
+   const drawerWidth = 240;
 
 const Dashboard = (props) => {
       
@@ -59,9 +59,9 @@ const Dashboard = (props) => {
 
   const drawer = (
     <div>
-      <Typography sx={{m:3, color:'black'}} variant="h5" noWrap component="div">
-            Contact Manager
-      </Typography>
+      
+      <img src={logo} alt="" />
+      
       <Toolbar />
       
       <DashboardLink></DashboardLink>

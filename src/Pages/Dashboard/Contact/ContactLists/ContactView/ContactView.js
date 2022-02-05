@@ -13,6 +13,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ContactEdit from '../../ContactEdit/ContactEdit';
 import ContactDelete from '../../ContactDelete/ContactDelete';
+import { Typography } from '@mui/material';
 
 
 
@@ -55,32 +56,51 @@ function Row(props) {
      );
    }
 
+   const Rows = () =>{
+     return(
+          <React.Fragment>
+               <Typography>No contacts added yet. Create one!.</Typography>
+          </React.Fragment>
+     )
+   }
+
 const ContactView = ({ loading, contacts,searchContact }) => {
      
      return (
           <>
-               <TableContainer component={Paper}>
-               <Table aria-label="collapsible table">
-                    <TableHead>
-                    <TableRow>
-                    <TableCell />
-                    <TableCell align="center">Name / ID</TableCell>
-                    <TableCell align="center">Email</TableCell>
-                    <TableCell align="center">Phone</TableCell>
-                    <TableCell align="center">Status</TableCell>
-                    </TableRow>
-                    </TableHead>
-                    <TableBody>        
-                    {contacts.map(contact => (
-                    <Row key={contact._id} contact={contact} />
-                    ))} 
-                    {searchContact.map(contact => (
-                    <Row key={contact._id} contact={contact} />
-                    ))}
+
                     
-                    </TableBody>
-               </Table>
-              </TableContainer>     
+
+                    <TableContainer component={Paper}>
+                         <Table aria-label="collapsible table">
+                              <TableHead>
+                              <TableRow>
+                              <TableCell />
+                              <TableCell align="center">Name / ID</TableCell>
+                              <TableCell align="center">Email</TableCell>
+                              <TableCell align="center">Phone</TableCell>
+                              <TableCell align="center">Status</TableCell>
+                              </TableRow>
+                              </TableHead>
+                              <TableBody>        
+                              {   
+                                   contacts.map(contact => 
+                                        !contact._id ? 
+                                   (<Row key={contact._id} contact={contact} />)
+                                        :
+                                   (<Rows></Rows>))
+                                   
+                                   
+                              } 
+                              {searchContact.map(contact => (
+                              <Row key={contact._id} contact={contact} />
+                              ))}
+                              
+                              </TableBody>
+                         </Table>
+                    </TableContainer> 
+
+              
           </>
      );
 };

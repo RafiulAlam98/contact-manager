@@ -8,6 +8,7 @@ import { Container, Typography } from '@mui/material';
 
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from './../../../hooks/useAuth/useAuth';
+import Box from '@mui/material/Box';
 
 const Register = () => {
 
@@ -33,9 +34,17 @@ const Register = () => {
      }
      return (
           <>
-         <Container>
+         
+               
+            
+          <Container>
+                    <Box sx={{mt:4}}>
+                         <Typography sx={{color:'#6B5B95'}}  variant="h6" gutterBottom component="div">
+                              This is an application for contact manager. You can add new contact here. After login you will see the existing contact in the page. You can also update contact status from pending to approved. You can delete existing contact if you want to.
+                         </Typography>
+                    </Box>
                <Grid container spacing={2}>
-                    <Grid  sx={{width:'75%', mt:10}} item xs={12} md={12}>
+                    <Grid  sx={{width:'75%', mt:6}} item xs={12} md={12}>
                          
 
                          {
@@ -81,7 +90,7 @@ const Register = () => {
                                    size='small'
                               />
                               <Button 
-                                   sx={{width:'50%',m:2}}
+                                   sx={{width:'25%',m:2}}
                                    variant="contained"
                                    type="submit"
                                    size='small'
@@ -96,11 +105,6 @@ const Register = () => {
                          }
                          {
                               isLoading && <CircularProgress />
-                         }
-                         {
-                              user?.email && <Alert sx={{m:1}} variant="outlined" severity="success">
-                                                  User registered successfully
-                                             </Alert>
                          }
                          {
                               error && <Alert variant="outlined" severity="error">

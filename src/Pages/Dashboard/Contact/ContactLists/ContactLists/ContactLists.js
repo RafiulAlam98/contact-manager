@@ -21,7 +21,7 @@ const ContactLists = () => {
      }
      const handleSubmit = e =>{
           setLoading(true);
-          fetch(`http://localhost:5000/allContacts/${searchData}`)
+          fetch(`https://cryptic-anchorage-19395.herokuapp.com/allContacts/${searchData}`)
           .then(res => res.json())
           .then(info => {
                console.log(info); 
@@ -33,7 +33,7 @@ const ContactLists = () => {
      
      useEffect(() => {
           setLoading(true);
-          fetch('http://localhost:5000/allContacts')
+          fetch('https://cryptic-anchorage-19395.herokuapp.com/allContacts')
             .then(res => res.json())
             .then(info => {
               setContacts(info);

@@ -5,7 +5,7 @@ const ContactDelete = ({id }) => {
      const handleUpdate = id => {
           console.log(id)
           
-     fetch(`http://localhost:5000/allContacts/${id}`, {
+     fetch(`https://cryptic-anchorage-19395.herokuapp.com/allContacts/${id}`, {
           method: 'DELETE',
           headers: {
           'content-type': 'application/json',

@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import { useForm } from "react-hook-form";
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
+import './ContactForm.css'
 
 const style = {
      position: 'absolute',
@@ -28,7 +29,7 @@ const ContactForm = ({ open, handleClose }) => {
                status:'pending'
           }
           console.log(contactInfo)
-          fetch(`http://localhost:5000/newContact`, {
+          fetch(`https://cryptic-anchorage-19395.herokuapp.com/newContact`, {
                method: 'POST',
                headers: {
                     'content-type': 'application/json',
@@ -90,7 +91,7 @@ const ContactForm = ({ open, handleClose }) => {
                                    </Box>
 
                                    <Box sx={{ textAlign:'center'}}>
-                                        <input type="submit" />
+                                        <input className="submit-btn" type="submit" />
                                    </Box>
                               </form>
                          </Box>

@@ -70,7 +70,7 @@ const Login = () => {
                                              size='small'
                                         />
                                         <Button 
-                                             sx={{width:'50%',m:2}}
+                                             sx={{width:'25%',m:2}}
                                              variant="contained"
                                              type="submit"
                                              size="small"
@@ -86,11 +86,7 @@ const Login = () => {
                          {
                               isLoading && <CircularProgress />
                          }
-                         {
-                              user?.email && <Alert sx={{m:1}} variant="outlined" severity="success">
-                                                  User login successfully
-                                             </Alert>
-                         }
+                         
                          {
                               error && <Alert variant="outlined" severity="error">
                                              {error}
