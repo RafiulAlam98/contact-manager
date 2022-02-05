@@ -23,7 +23,9 @@ const ContactEdit = ({id }) => {
      };
      return (
           <>
-            <Button variant="contained" onClick={() => handleUpdate( id)}>Update</Button>   
+            <>
+               <Button sx={{mx:'4'}} size='small' variant="contained" onClick={() => handleUpdate( id)}>Approve</Button> 
+            </>  
           </>
      );
 };

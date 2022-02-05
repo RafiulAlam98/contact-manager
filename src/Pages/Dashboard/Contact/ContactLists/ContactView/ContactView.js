@@ -15,43 +15,47 @@ import ContactEdit from '../../ContactEdit/ContactEdit';
 import ContactDelete from '../../ContactDelete/ContactDelete';
 
 
+
+
 function Row(props) {
-     const { contact } = props;
+     const { contact, } = props;
      const [open, setOpen] = React.useState(false);
      
    
      return (
           <React.Fragment>
-               <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-                    <TableCell>
-                    <IconButton
-                         aria-label="expand row"
-                         size="small"
-                         onClick={() => setOpen(!open)}
-                    >
-                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                    </IconButton>
-                    </TableCell>
-                    <TableCell align="center">{contact.name}</TableCell>
-                    <TableCell align="center">{contact.email}</TableCell>
-                    <TableCell align="center">{contact.phone}</TableCell>
-                    <TableCell align="center">{contact.status}</TableCell>
-               </TableRow>
-               <TableRow>
-                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                    <Collapse in={open} timeout="auto" unmountOnExit>
-                         <Box sx={{ margin: 1 }}>
-                              <ContactEdit id={contact._id}></ContactEdit>
-                              <ContactDelete id={contact._id}></ContactDelete>
-                         </Box>
-                    </Collapse>
-                    </TableCell>
-               </TableRow>
+
+                    <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+                         <TableCell>
+                         <IconButton
+                              aria-label="expand row"
+                              size="small"
+                              onClick={() => setOpen(!open)}
+                         >
+                              {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                         </IconButton>
+                         </TableCell>
+                         <TableCell align="center">{contact.name}</TableCell>
+                         <TableCell align="center">{contact.email}</TableCell>
+                         <TableCell align="center">{contact.phone}</TableCell>
+                         <TableCell align="center">{contact.status}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                         <Collapse in={open} timeout="auto" unmountOnExit>
+                              <Box sx={{ margin: 1 }}>
+                                   <ContactEdit id={contact._id}></ContactEdit>
+                                   <ContactDelete id={contact._id}></ContactDelete>
+                              </Box>
+                         </Collapse>
+                         </TableCell>
+                    </TableRow>
+               
           </React.Fragment>
      );
    }
 
-const ContactView = ({ loading, contacts }) => {
+const ContactView = ({ loading, contacts,searchContact }) => {
      
      return (
           <>
@@ -66,10 +70,14 @@ const ContactView = ({ loading, contacts }) => {
                     <TableCell align="center">Status</TableCell>
                     </TableRow>
                     </TableHead>
-                    <TableBody>
+                    <TableBody>        
                     {contacts.map(contact => (
                     <Row key={contact._id} contact={contact} />
+                    ))} 
+                    {searchContact.map(contact => (
+                    <Row key={contact._id} contact={contact} />
                     ))}
+                    
                     </TableBody>
                </Table>
               </TableContainer>     

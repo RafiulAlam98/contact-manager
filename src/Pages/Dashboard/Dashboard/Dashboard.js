@@ -17,10 +17,10 @@ import DashboardRoute from './DashboardRoute/DashboardRoute';
 
 
 
-
    const drawerWidth = 200;
 
 const Dashboard = (props) => {
+      
         function Item(props) {
           const { sx, ...other } = props;
           return (
@@ -108,11 +108,14 @@ const Dashboard = (props) => {
                           </Button>
                         </Item>
                         <Item>
-                        <Button 
-                        sx={{ml:2,color:'white'}}
-                        onClick={userSignOut}
-                        ><LogoutIcon></LogoutIcon>
-                    </Button>
+                          <Button 
+                          sx={{ml:2,color:'white'}}
+                          onClick={userSignOut}
+                          ><LogoutIcon></LogoutIcon>
+                          </Button>
+                        </Item>
+                        <Item>
+                         
                         </Item>
                       </Toolbar>
                     </Box>

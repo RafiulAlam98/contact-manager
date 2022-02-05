@@ -21,9 +21,9 @@ const ContactDelete = ({id }) => {
           });
      };
      return (
-          <div>
-               <Button variant="contained" onClick={() => handleUpdate( id)}>Delete</Button> 
-          </div>
+          <>
+               <Button sx={{mx:'4'}} size='small' variant="contained" onClick={() => handleUpdate( id)}>Delete</Button> 
+          </>
      );
 };
 
